@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prakash - Developer Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: #0f172a;
+        color: #e5e7eb;
+        line-height: 1.6;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    img {
+        max-width: 100%;
+        display: block;
+    }
+
+
+    header {
+        background: #020617;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    header {
+        backdrop-filter: blur(8px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+
+
+
+    nav {
+        max-width: 1200px;
+        margin: auto;
+        padding: 1rem 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-links li a {
+        position: relative;
+    }
+
+    .nav-links li a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 0;
+        height: 2px;
+        color: orange;
+        background: #fcb503;
+        transition: width 0.3s;
+    }
+
+    .nav-links li a:hover::after {
+        width: 100%;
+        color: orange
+    }
+
+    .left {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #a855f7;
+    }
+
+    .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+    }
+
+    .nav-links li a {
+        font-size: 1rem;
+        transition: color 0.3s;
+    }
+
+    .nav-links li a:hover {
+        color: #fcb503;
+    }
+
+
+    .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+    }
+
+    .hamburger span {
+        width: 25px;
+        height: 3px;
+        background: #ffd903;
+        margin: 4px 0;
+        transition: 0.3s;
+    }
+
+
+    .firstSection {
+        max-width: 1200px;
+        margin: auto;
+        padding: 4rem 1.5rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    .leftSection {
+        font-size: 2rem;
+    }
+
+    .purple {
+        color: #a855f7;
+        font-weight: 600;
+    }
+
+    #element {
+        color: #f7bc09;
+        font-weight: 600;
+    }
+
+    .buttons {
+        margin-top: 1.5rem;
+    }
+
+    @media (max-width: 600px) {
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+    }
+
+
+    .btn {
+        padding: 0.7rem 1.4rem;
+        border: 2px solid #fd8004;
+        background: transparent;
+        color: hsl(0, 20%, 99%);
+        margin-right: 1rem;
+        cursor: pointer;
+        transition: 0.3s;
+        border-radius: 6px;
+        font-size: medium;
+    }
+
+    .btn:hover {
+        background: #292a02;
+    }
+
+    .rightSection img {
+        width: 100%;
+        max-width: 350px;
+        margin: auto;
+    }
+
+
+    section {
+        padding: 4rem 1.5rem;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    hr {
+        border: none;
+        height: 1px;
+        background: #1e293b;
+        margin: 3rem 0;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+        color: #a855f7;
+        text-align: center;
+    }
+
+    .text-gray {
+        color: #b8f70a;
+        display: block;
+        text-align: center;
+        margin-bottom: 0.5rem;
+        font-weight: 400;
+        font-size: medium;
+    }
+
+    /* SKILL */
+    .secondSection {
+        padding: 80px 10%;
+        background: linear-gradient(135deg, #020617, #0f172a);
+        text-align: center;
+        color: #fff;
+    }
+
+    .text-gray {
+        color: #f7bc09;
+        font-size: 14px;
+    }
+
+
+    .skills-heading {
+        font-size: 2.5rem;
+        margin-bottom: 50px;
+        color: #a855f7;
+    }
+
+
+    .skills-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 25px;
+    }
+
+
+    .skill-card {
+        background: rgba(30, 41, 59, 0.7);
+        padding: 20px;
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+        transition: 0.4s;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+
+    .skill-card:hover {
+        transform: translateY(-10px) scale(1.05);
+        box-shadow: 0 0 20px rgba(168, 85, 247, 0.7);
+    }
+
+
+    .skill-icon {
+        width: 50px;
+        margin-bottom: 15px;
+    }
+
+    .skill-card h3 {
+        margin-bottom: 10px;
+        font-size: 18px;
+        color: #fff;
+    }
+
+    .skill-card p {
+        font-size: 13px;
+        color: #cbd5f5;
+    }
+
+
+    .skill-bars {
+        max-width: 800px;
+        margin: auto;
+    }
+
+    .bar {
+        margin-bottom: 1.2rem;
+    }
+
+    .bar span {
+
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #cbd5f5;
+    }
+
+    .progress {
+        height: 10px;
+        background: #1e293b;
+        border-radius: 6px;
+        overflow: hidden;
+        margin-top: 6px;
+    }
+
+    .progress div {
+        height: 100%;
+        background: linear-gradient(90deg, #a855f7, #38bdf8);
+    }
+
+    #about .content {
+        max-width: 800px;
+        margin: auto;
+        text-align: center;
+        color: #cbd5f5;
+    }
+
+    .icons {
+        margin-top: 1.5rem;
+        text-align: center;
+    }
+
+    .icons i {
+        font-size: 2rem;
+        margin: 0 0.6rem;
+        color: #edbf08;
+    }
+
+
+    #contact {
+        text-align: center;
+    }
+
+    .contact-icons {
+        margin-top: 1.5rem;
+    }
+
+    .contact-icons a {
+        font-size: 2rem;
+        margin: 0 0.8rem;
+        color: #edbf08;
+        transition: transform 0.3s, color 0.3s;
+    }
+
+    .contact-icons a:hover {
+        color: #a855f7;
+        transform: scale(1.2);
+    }
+
+
+    footer {
+        background: #020617;
+        padding: 2rem 1rem;
+        margin-top: 3rem;
+    }
+
+    .footer {
+        max-width: 1200px;
+        margin: auto;
+        text-align: center;
+    }
+
+    .footer-first h3 {
+        color: #a855f7;
+        margin-bottom: 0.5rem;
+    }
+
+    .footer-rights {
+        font-size: 0.9rem;
+        color: #94a3b8;
+    }
+
+
+    @media (max-width: 900px) {
+        .firstSection {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+
+        .box {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 600px) {
+        .nav-links {
+            position: absolute;
+            top: 65px;
+            right: 0;
+            background: #020617;
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            display: none;
+            padding: 1.5rem 0;
+        }
+
+        .nav-links.active {
+            display: flex;
+        }
+
+        .hamburger {
+            display: flex;
+        }
+
+        .box {
+            grid-template-columns: 1fr;
+        }
+
+        .leftSection {
+            font-size: 1.6rem;
+        }
+    }
+
+
+
+    #projects {
+        padding: 80px 10%;
+        background: linear-gradient(135deg, #020617, #0f172a);
+        color: #a855f7;
+        text-align: center;
+    }
+
+    .section-title {
+        align-items: center;
+        text-align: center;
+        color: #a855f7;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+        margin-bottom: 50px;
+    }
+
+    .projects-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .project-card {
+        max-width: 500px;
+        background: rgba(30, 41, 59, 0.8);
+        padding: 25px;
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        transition: 0.4s;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    }
+
+    .project-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+    }
+
+    .project-card h3 {
+        margin-bottom: 15px;
+        font-size: 1.8rem;
+    }
+
+    .project-card p {
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+
+    .features {
+        text-align: left;
+        margin-bottom: 15px;
+    }
+
+    .features li {
+        font-size: 13px;
+        margin: 5px 0;
+    }
+
+    .tech span {
+        display: inline-block;
+        background: #22c55e;
+        color: #000;
+        padding: 6px 12px;
+        border-radius: 10px;
+        margin: 5px;
+        font-size: 12px;
+    }
+
+    .button a {
+        display: inline-block;
+        margin: 10px 8px;
+        padding: 10px 18px;
+        border-radius: 10px;
+        text-decoration: none;
+        background: #f6bd04;
+        color: #000;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .buttons a:hover {
+        background: #0ea5e9;
+    }
+</style>
+
+<body>
+    <header>
+        <nav>
+            <div class="left">My Portfolio</div>
+
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#home" onclick="toggleMenu()">Home</a></li>
+
+                <li><a href="#services" onclick="toggleMenu()">Skills</a></li>
+                <li><a href="#proj" onclick="toggleMenu()">Projects</a></li>
+                <li><a href="#about" onclick="toggleMenu()">About</a></li>
+                <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+            </ul>
+        </nav>
+
+
+
+        <main>
+            <section class="firstSection" id="home">
+                <div class="leftSection">
+                    Hi, My name is <span class="purple">Prakash</span>
+                    <div>and I am a passionate</div>
+                    <span id="element"></span>
+                    <div class="buttons">
+                        <button class="btn"><a href="./media/resume.pdf" download>Download Resume</a></button>
+                        <button class="btn"><a href="https://github.com/prakashpandey95069">Visit GitHub</a></button>
+                    </div>
+                </div>
+                <div class="rightSection">
+                    <img src="./media/base.png" alt="Profile Image">
+                </div>
+            </section>
+
+            <hr>
+
+
+            <section class="secondSection" id="services">
+                <span class="text-gray">I am a Fresher</span>
+                <h1 class="skills-heading">My Skills</h1>
+
+                <div class="skills-container">
+
+                    <div class="skill-card">
+                        <img src="./media/c.png" class="skill-icon">
+                        <h3>C Programming</h3>
+                        <p>C is a fast, low-level language used for system programming and embedded development.</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <img src="./media/python.png" class="skill-icon">
+                        <h3>Python</h3>
+                        <p>Used for automation, data analysis, and visualization using NumPy, Pandas, Matplotlib.</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <img src="./media/html.png" class="skill-icon">
+                        <h3>HTML, CSS, JavaScript</h3>
+                        <p>Building responsive modern websites using Flexbox, Grid, and JavaScript.</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <img src="./media/java.png" class="skill-icon">
+                        <h3>Java Programming</h3>
+                        <p>Strong in OOP, collections, exception handling, and basic JDBC concepts.</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <img src="./media/data.png" class="skill-icon">
+                        <h3>Data Analyst</h3>
+                        <p>Data cleaning, visualization, and insights using Python, SQL, and Excel.</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <img src="./media/database2.png" class="skill-icon">
+                        <h3>Database (SQL & Oracle)</h3>
+                        <p>Experienced in joins, subqueries, constraints, indexing, and Oracle basics.</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <img src="./media/dsa.png" class="skill-icon">
+                        <h3>DSA with Java</h3>
+                        <p>Strong foundation in arrays, stacks, queues, trees, recursion, and problem solving.</p>
+                    </div>
+
+                </div>
+            </section>
+
+            <hr>
+            <section id="services" class="skill-bars">
+                <h1>Skill Proficiency</h1>
+
+
+                <div class="bar">
+                    <i class="fab fa-c" style="color: rgb(37, 37, 228);"></i>
+                    <span>C</span>
+                    <div class="progress">
+                        <div style="width:75%"></div>
+                    </div>
+                </div>
+
+                <div class="bar">
+                    <i class="fab fa-python" style="color:rgb(161, 161, 33)"></i>
+                    <span>Python</span>
+                    <div class="progress">
+                        <div style="width:80%"></div>
+                    </div>
+                </div>
+
+                <div class="bar">
+                    <i class="fab fa-html5" style="color:red"></i>
+                    <span>HTML / <i class="fab fa-css3-alt" style="color:blueviolet"></i> CSS/ <i class="fab fa-js"
+                            style="color:yellow"></i> JavaScript </span>
+                    <div class="progress">
+                        <div style="width:75%"></div>
+                    </div>
+                </div>
+
+                <div class="bar">
+                    <i class="fab fa-java " style="color: red;"></i>
+                    <span>Java</span>
+                    <div class="progress">
+                        <div style="width:75%"></div>
+                    </div>
+                </div>
+
+                <div class="bar">
+                    <i class="fab fa-database" style="color: #38bdf8;"></i>
+                    <span>SQL/MongoDB</span>
+                    <div class="progress">
+                        <div style="width:70%"></div>
+                    </div>
+                </div>
+            </section>
+
+            <hr>
+
+            <section id="proj">
+                <h2 class="section-title">My Project</h2>
+
+                <div class="projects-container">
+
+                    <div class="project-card">
+                        <h3>🎬 Movie Recommender System</h3>
+
+                        <p>
+                            A personalized movie recommendation system that suggests movies based on user preferences
+                            using machine learning techniques.
+                        </p>
+
+                        <ul class="features">
+                            <li>✅ Content-based filtering using similarity algorithms</li>
+                            <li>✅ Search movies and get instant recommendations</li>
+                            <li>✅ Clean and interactive UI</li>
+                            <li>✅ Fast and accurate results</li>
+                        </ul>
+
+                        <div class="tech">
+                            <span>Python</span>
+                            <span>Machine Learning</span>
+                            <span>Pandas</span>
+                            <span>Scikit-learn</span>
+                            <span>HTML/CSS</span>
+                        </div>
+
+                        <div class="button">
+                            <a href=" https://movieflix95069.streamlit.app/" target="_blank">🔗 Live Demo</a>
+                            <a href="#" target="_blank">💻 GitHub</a>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <hr>
+
+            <section id="about">
+                <h1>About Me</h1>
+                <div class="content">
+                    I am a passionate web developer who loves designing creative and responsive websites.
+                    I specialize in HTML, CSS, JavaScript, and animations that bring websites to life.
+                </div>
+                <div class="icons">
+                    <i class="fab fa-c"></i>
+                    <i class="fab fa-html5"></i>
+                    <i class="fab fa-css3-alt"></i>
+                    <i class="fab fa-js-square"></i>
+                    <i class="fab fa-python"></i>
+                    <i class="fab fa-database"></i>
+                    <i class="fab fa-java"></i>
+                    <i class="fab fa-github"></i>
+                </div>
+            </section>
+
+            <hr>
+            <section id="contact">
+                <h1>Contact Me</h1>
+                <p>Get in touch with me via Phone, Email, Instagram, or LinkedIn!</p>
+                <div class="contact-icons">
+                    <a href="tel:+919506988828" title="Call Me">
+                        <i class="fas fa-phone"></i>
+                    </a>
+
+                    <a href="mailto:jipandey794@gmail.com" title="Email Me">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/prakash-pandey-557526316" target="_blank" title="LinkedIn"><i
+                            class="fab fa-linkedin"></i></a>
+                </div>
+            </section>
+        </main>
+        <hr>
+
+        <footer>
+            <div class="footer">
+                <div class="footer-first">
+                    <h3>Prakash Pandey Portfolio</h3>
+                </div>
+                <div class="footer-rights">
+                    © prakashportfolio.com | All rights reserved
+                </div>
+            </div>
+        </footer>
+
+
+        <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+        </script>
+
+        <script> var typed = new Typed('#element', { strings: ['Web Developer', 'and', 'Data Analyst.'], typeSpeed: 50, });
+            function toggleMenu() { document.querySelector(".nav-links").classList.toggle("active"); }
+            function toggleMenu() { document.querySelector(".nav-links").classList.toggle("active"); } 
+        </script>
+
+</body>
+
+</html>
